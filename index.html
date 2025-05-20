@@ -526,29 +526,21 @@
         margin: 0;
         align-self: center; /* Better vertical alignment */
     }
-
-    /* Projects and certifications: single column layout on mobile */
+    
+    /* Projects horizontal scroll */
     .projects-grid {
-        display: grid !important; /* Override the flex display */
-        grid-template-columns: 1fr !important; /* Single column layout */
-        overflow-x: visible !important; /* Remove horizontal scroll */
-        scroll-snap-type: none !important; /* Remove snap scrolling */
-        padding-bottom: 0 !important; /* Remove extra padding */
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        padding-bottom: 20px; /* Space for scrollbar */
     }
-
+    
     .project-card {
-        min-width: auto !important; /* Remove fixed width */
-        scroll-snap-align: unset !important; /* Remove snap alignment */
+        min-width: 350px;
+        scroll-snap-align: start;
     }
-}
-
-@media (max-width: 480px) {
-    /* Ensure single column layout for smallest screens */
-    .projects-grid {
-        grid-template-columns: 1fr !important;
-    }
-}
-	    
+    
     /* Skills grid */
     .skills-grid {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

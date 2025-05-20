@@ -528,18 +528,19 @@
     }
     
     /* Projects horizontal scroll */
-    .projects-grid {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 20px;
-        padding-bottom: 20px; /* Space for scrollbar */
-    }
-    
-    .project-card {
-        min-width: 350px;
-        scroll-snap-align: start;
-    }
+.projects-grid {
+    display: grid !important;                 
+    grid-template-columns: 1fr !important;    
+    overflow-x: visible !important;           
+    scroll-snap-type: none !important;        
+    padding-bottom: 0 !important;             
+}
+
+.project-card {
+    min-width: auto !important;               
+    scroll-snap-align: unset !important;      
+}
+
     
     /* Skills grid */
     .skills-grid {

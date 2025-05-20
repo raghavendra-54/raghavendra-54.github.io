@@ -467,100 +467,152 @@
 
         /* Responsive Design */
 @media (max-width: 992px) {
-    /* General adjustments for tablet/mobile */
+    /* Tablet adjustments */
     body {
-        padding-top: 60px; /* Reduce space for fixed nav */
+        padding-top: 60px;
+        zoom: 0.9; /* Slightly scale down entire page */
     }
     
     .tab-nav {
         padding: 10px;
-        overflow-x: auto; /* Allow horizontal scrolling if needed */
+        overflow-x: auto;
         white-space: nowrap;
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     }
     
     .tab-button {
         padding: 8px 15px;
         font-size: 0.9rem;
         margin: 0 3px;
+        flex-shrink: 0; /* Prevent buttons from shrinking */
     }
     
     .theme-toggle {
         position: fixed;
         right: 10px;
         top: 10px;
+        background: rgba(0,0,0,0.2);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
 @media (max-width: 768px) {
-    /* Force desktop layout on mobile */
+    /* Mobile desktop-like layout */
     .hero, 
     .about-container,
     .contact-container {
-        display: flex !important;
-        flex-direction: row !important;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
     }
     
     .hero-text,
     .about-text,
     .contact-info {
-        padding-right: 20px !important;
-        text-align: left !important;
+        padding-right: 20px;
+        text-align: left;
+        flex: 1;
     }
     
     .hero-image,
     .about-image {
-        width: 300px !important;
-        height: 300px !important;
-        margin: 0 !important;
+        width: 300px;
+        height: 300px;
+        margin: 0;
+        align-self: center; /* Better vertical alignment */
     }
     
+    /* Projects horizontal scroll */
     .projects-grid {
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)) !important;
-    }
-    
-    .skills-grid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
-    }
-    
-    /* Prevent any stacking of elements */
-    .info-item,
-    .social-links,
-    .social-media-links {
-        justify-content: flex-start !important;
-    }
-    
-    /* Scale down fonts slightly */
-    h1 { font-size: 2.5rem !important; }
-    h2 { font-size: 2rem !important; }
-    h3 { font-size: 1.5rem !important; }
-    .tagline { font-size: 1.3rem !important; }
-}
-
-@media (max-width: 480px) {
-    /* Further adjustments for very small screens */
-    .hero-image,
-    .about-image {
-        width: 250px !important;
-        height: 250px !important;
-    }
-    
-    /* Horizontal scrolling for projects */
-    .projects-grid {
-        display: flex !important;
-        overflow-x: auto !important;
-        scroll-snap-type: x mandatory !important;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        padding-bottom: 20px; /* Space for scrollbar */
     }
     
     .project-card {
-        min-width: 350px !important;
-        scroll-snap-align: start !important;
-        margin-right: 20px !important;
+        min-width: 350px;
+        scroll-snap-align: start;
     }
     
-    /* Prevent text from becoming too small */
-    body {
-        font-size: 14px !important;
+    /* Skills grid */
+    .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
+    
+    /* Contact form adjustments */
+    .contact-form {
+        min-width: 300px;
+    }
+    
+    .form-control {
+        font-size: 16px; /* Better mobile input */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Small mobile devices */
+    body {
+        font-size: 14px;
+        zoom: 1; /* Reset zoom */
+    }
+    
+    .hero, 
+    .about-container {
+        flex-direction: column;
+    }
+    
+    .hero-image,
+    .about-image {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    
+    /* Contact section stays side-by-side until 400px */
+    .contact-container {
+        flex-direction: row;
+    }
+    
+    .project-card {
+        min-width: 300px;
+    }
+}
+
+@media (max-width: 400px) {
+    /* Tiny screens */
+    .contact-container {
+        flex-direction: column;
+    }
+    
+    .contact-form,
+    .contact-info {
+        width: 100% !important;
+    }
+    
+    .tab-button {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Video link fixes */
+.project-link.video-link {
+    background: #ff4757;
+    color: white;
+    pointer-events: auto; /* Ensure clicks work */
+}
+
+/* Prevent iframe permission issues */
+.modal iframe {
+    border: none;
 }
     </style>
 </head>
